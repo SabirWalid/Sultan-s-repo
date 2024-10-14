@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Localization Project</title>
+</head>
+<body>
+    <h1>{{ greeting }}</h1>
+    <p>Number: {{ large_number }}</p>
+    <p>Date: {{ current_date }}</p>
+
+    <form action="{% url 'set_language' %}" method="post">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ redirect_to }}" />
+        <select name="language">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ar">Arabic</option>
+        </select>
+        <input type="submit" value="Change Language">
+    </form>
+</body>
+</html>
